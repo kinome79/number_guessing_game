@@ -11,6 +11,6 @@ else
 fi
 
 #Generate and echo random number
-
+RANDOM_NUM=$(($RANDOM%1000 + 1))
 
 #Guessing Loop
