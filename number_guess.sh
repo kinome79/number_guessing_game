@@ -44,7 +44,7 @@ VALIDATE_GUESS() {
 
 #Guessing Loop
 NUM_GUESSES=1
-echo -e "\nGuess the secret number between 1 and 1000:" 
+echo -e "Guess the secret number between 1 and 1000:" 
 read GUESS
 VALIDATE_GUESS
 while [[ $RANDOM_NUM -ne $GUESS ]]
