@@ -4,7 +4,7 @@ PSQL="psql --username=freecodecamp --dbname=number_guess -t --no-align -c"
 
 
 #Get and validate username
-echo "Enter your username:"
+echo -e "\nEnter your username:"
 read USERNAME
 
 if [[ -z $USERNAME ]]
