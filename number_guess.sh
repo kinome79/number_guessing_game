@@ -44,17 +44,17 @@ VALIDATE_GUESS() {
 
 #Guessing Loop
 NUM_GUESSES=1
-echo "Guess the secret number between 1 and 1000:" 
+echo -e "\nGuess the secret number between 1 and 1000:" 
 read GUESS
 VALIDATE_GUESS
 while [[ $RANDOM_NUM -ne $GUESS ]]
 do
   if [[ $RANDOM_NUM -gt $GUESS ]]
   then
-    echo "It's higher than that, guess again:" 
+    echo -e "\nIt's higher than that, guess again:" 
     read GUESS
   else
-    echo "It's lower than that, guess again:" 
+    echo -e "\nIt's lower than that, guess again:" 
     read GUESS
   fi
   VALIDATE_GUESS
@@ -73,4 +73,4 @@ then
   echo "An error occurred while storing your game data!"
 fi
 
-echo "You guessed it in $NUM_GUESSES tries. The secret number was $RANDOM_NUM. Nice job!"
+echo -e "\nYou guessed it in $NUM_GUESSES tries. The secret number was $RANDOM_NUM. Nice job!"
