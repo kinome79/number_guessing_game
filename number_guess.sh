@@ -4,7 +4,8 @@ PSQL="psql --username=freecodecamp --dbname=number_guess -t --no-align -c"
 
 
 #Get and validate username
-read -p "Enter your username: " USERNAME
+echo "Enter your username:"
+read USERNAME
 
 if [[ -z $USERNAME ]]
 then
@@ -36,28 +37,32 @@ RANDOM_NUM=$(($RANDOM%1000 + 1))
 VALIDATE_GUESS() {
   while [[ ! $GUESS =~ ^[0-9]+$ ]]
   do
-    read -p "That is not an integer, guess again: " GUESS
+    echo "That is not an integer, guess again:"
+    read GUESS
   done
 }
 
 #Guessing Loop
 NUM_GUESSES=1
-read -p "Guess the secret number between 1 and 1000: " GUESS
+echo "Guess the secret number between 1 and 1000:" 
+read GUESS
 VALIDATE_GUESS
 while [[ $RANDOM_NUM -ne $GUESS ]]
 do
   if [[ $RANDOM_NUM -gt $GUESS ]]
   then
-    read -p "It's higher than that, guess again: " GUESS
+    echo "It's higher than that, guess again:" 
+    read GUESS
   else
-    read -p "It's lower than that, guess again: " GUESS
+    echo "It's lower than that, guess again:" 
+    read GUESS
   fi
   VALIDATE_GUESS
   (( NUM_GUESSES++ ))
 done
 
 (( GAMES++ ))
-if [[ $BEST > $NUM_GUESSES ]] 
+if [[ $BEST -eq 0 || $BEST > $NUM_GUESSES ]] 
 then
   BEST=$NUM_GUESSES
 fi
@@ -68,4 +73,4 @@ then
   echo "An error occurred while storing your game data!"
 fi
 
-echo "You guessed it in $NUM_GUESSES tries. The secret number was $RANDOM_NUM. Nice job!
+echo "You guessed it in $NUM_GUESSES tries. The secret number was $RANDOM_NUM. Nice job!"
