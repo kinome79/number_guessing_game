@@ -19,7 +19,7 @@ else
   USER_INFO=$($PSQL "SELECT user_id, games_played, best_game FROM users WHERE username='$USERNAME'")
   if [[ -z $USER_INFO ]]
   then
-    echo "Welcome, $USERNAME! It looks like this is your first time here."
+    echo -e "\nWelcome, $USERNAME! It looks like this is your first time here."
     RESPONSE=$($PSQL "INSERT INTO users(username) VALUES ('$USERNAME')")
     if [[ $RESPONSE != "INSERT 0 1" ]]
     then
