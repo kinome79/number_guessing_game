@@ -27,7 +27,7 @@ else
     fi
   else
     IFS="|" read ID GAMES BEST <<< "$USER_INFO"
-    echo "Welcome back, $USERNAME! You have played $GAMES games, and your best game took $BEST guesses."
+    echo -e "\nWelcome back, $USERNAME! You have played $GAMES games, and your best game took $BEST guesses."
   fi
 fi
 
