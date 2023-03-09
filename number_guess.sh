@@ -15,7 +15,7 @@ then
   echo "The username supplied is too long (max 22 chars)!"
   exit
 else
-  USER_INFO=$($PSQL "SELECT user_id, games_played, best_game FROM number_guess WHERE username='$USERNAME'")
+  USER_INFO=$($PSQL "SELECT user_id, games_played, best_game FROM users WHERE username='$USERNAME'")
   if [[ -z $USER_INFO ]]
   then
     echo "Welcome, $USERNAME! It looks like this is your first time here."
